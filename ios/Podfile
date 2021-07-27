@@ -26,6 +26,10 @@ target 'nativeTemplate' do
   use_native_modules!
   common_pods
   # Intentionally left empty
+  pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
+
+  pod 'react-native-location', :path => '../node_modules/react-native-location'
+
 end
 
 target 'dev' do
