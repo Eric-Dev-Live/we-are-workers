@@ -152,6 +152,10 @@ dependencies {
     implementation project(":mendixnative-release")
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.webkit:android-jsc:r245459"
+    implementation project(':react-native-contacts')
+    implementation project(':react-native-read-sms')
+    implementation project(':react-native-location')
+     
 
     // Required for Custom Dev Apps
     devImplementation 'com.fasterxml.jackson.core:jackson-core:2.11.3'
