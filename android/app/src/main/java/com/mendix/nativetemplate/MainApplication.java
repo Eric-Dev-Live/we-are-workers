@@ -11,7 +11,6 @@ import com.mendix.mendixnative.react.splash.MendixSplashScreenPresenter;
 import com.microsoft.codepush.react.CodePush;
 
 import org.devio.rn.splashscreen.SplashScreen;
-import com.rt2zz.reactnativecontacts.ReactNativeContacts;
 
 import java.util.List;
 
@@ -28,7 +27,6 @@ public class MainApplication extends MendixReactApplication {
 
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
-        packages.add(new ReactNativeContacts());
         packages.add(new CodePush(getCodePushKey(), getApplicationContext(), BuildConfig.DEBUG));
 
         return packages;

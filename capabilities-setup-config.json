@@ -35,24 +35,14 @@
         "android": {
             "externalDependencies": [
                 "me.leolin:ShortcutBadger:1.1.22@aar"
-            ],
-            "gradle": {
-                "classpaths": [
-                    "com.google.gms:google-services:4.3.3"
-                ],
-                "plugins": [
-                    "com.google.gms.google-services"
-                ]
-            }
+            ]
         },
         "ios": {
             "AppDelegate": {
                 "imports": [
-                    "#import <Firebase.h>",
                     "#import <RNCPushNotificationIOS.h>"
                 ],
                 "didFinishLaunchingWithOptions": [
-                    "[FIRApp configure];",
                     "UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];",
                     "center.delegate = MendixAppDelegate.delegate;"
                 ],
@@ -107,6 +97,26 @@
                 },
                 "GoogleMaps": {},
                 "Google-Maps-iOS-Utils": {}
+            }
+        }
+    },
+    "appCenterOTA": {
+        "ios": {
+            "AppDelegate": {
+                "imports": [
+                    "#import <CodePush/CodePush.h>"
+                ],
+                "getJSBundleFile": [
+                    "if ([ReactNative.instance useCodePush]) {",
+                    "    [CodePush setDeploymentKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@\"CodePushKey\"] ?: @\"\"];",
+                    "    return [CodePush bundleURLForResource:@\"index.ios\" withExtension:@\"bundle\" subdirectory:@\"Bundle\"];",
+                    "}"
+                ]
+            },
+            "pods": {
+                "CodePush": {
+                    "path": "../node_modules/react-native-code-push"
+                }
             }
         }
     }
